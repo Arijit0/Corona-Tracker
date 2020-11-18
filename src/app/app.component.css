@@ -1,0 +1,84 @@
+.card {
+    border: none;
+}
+
+.moon a {
+    font-size: 30px;
+}
+
+.sun a {
+    font-size: 30px;
+}
+
+.btn-group select{
+    height: 40px;
+    margin-top: 20px;
+    
+}
+
+.text-danger {
+    max-width: 200px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 414px) {
+    .btn-group select{
+        width: 100px;
+    }
+
+   
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+
+    .row .confirm {
+        margin-left: -76px;
+    }
+
+    .row .recover {
+        margin-left: -76px;
+    }
+
+    .row .death {
+        margin-left: -76px;
+    }
+   
+}
+
+@media only screen and (max-width: 320px) {
+    .btn-group select{
+        width: 100px;
+    }
+
+   
+    .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+
+    .row .confirm {
+        width: 200px;
+        margin-left: -120px;
+    }
+
+    .row .recover {
+        width: 200px;
+        margin-left: -120px;
+    }
+
+    .row .death {
+        width: 200px;
+        margin-left: -120px;
+    }
+   
+}

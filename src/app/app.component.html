@@ -1,0 +1,108 @@
+
+
+<div *ngIf="loaderShow" class="d-flex justify-content-center" style="margin-top: 250px;">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div *ngIf="!loaderShow">
+
+<div [ngStyle]="isClicked?{'background-color': 'black', 'height': '663px'} : {'background-color': 'white', 'height': '663px'}">
+  <nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand">
+      <img src="assets/corona.png" width="30" height="30" alt="corona.png">
+      <strong style="margin-left: 10px;">Corona</strong><strong class="text-danger">Tracker</strong> 
+    </a>
+  
+     <div class="moon" *ngIf="!isClicked">
+       <a (click)="onClick('moon')">
+        <i name="moon" class="fa fa-moon-o"></i>
+       </a>
+     </div>
+  
+     <div class="sun" *ngIf="isClicked">
+      <a (click)="onClick('sun')">
+       <i name="moon" class="fa fa-sun-o"></i>
+      </a>
+    </div>
+   
+  </nav>
+  
+  <div class=" jumbotron text-center" style="margin-right: 20px; margin-left: 20px; margin-bottom: 20px; margin-top: 20px; background: #161625">
+
+    <form id="covidtracker" method="post" name="covidtracker" autocomplete="off">
+   
+    <div class="row" >
+      
+  
+
+    <div class="col-sm-2"></div>
+
+   <div class="col-sm-4">
+
+      <select (change)="selectedCountry($event.target.value)" >
+      <option *ngFor="let countryData of countries" value="{{countryData.Slug}}">{{countryData.Country}}</option>
+    </select>
+   </div>
+
+   <div class="col-sm-4">
+    <button (click)="getCoronaData()" type="button" class="btn btn-primary float-left" data-toggle="button" aria-pressed="false" autocomplete="off">
+      Show Data
+    </button>
+   </div>
+
+   <div class="col-sm-2"></div>
+
+
+  </div>
+
+  </form>
+  
+   
+    <div class="row" style="margin-top: 50px; margin-left: 150px;">
+      
+      <div class="col-sm-4 confirm">
+        <div class="card text-danger mb-3" >
+          <div class="card">
+          <div class="card-body" style="background: #FFF5F5;">
+            <h5 class="card-title text-center"><strong>{{totalCase}}</strong></h5>
+          </div>
+          </div>
+          <div class="card-footer" style="background: #FED7D7; text-align: center;"><strong>Confirmed</strong></div>
+        </div>
+      </div>
+  
+      <div class="col-sm-4 recover">
+        <div class="card text-success mb-3" style="max-width: 200px;">
+          <div class="card">
+          <div class="card-body text-center" style="background: #F0FFF4;">
+            <h5 class="card-title"><strong>{{totalRecovered}}</strong></h5>
+          </div>
+          </div>
+          <div class="card-footer text-center" style="background: #C6F6D5;"><strong>Recovered</strong></div>
+        </div>
+      </div>
+  
+      <div class="col-sm-4 death">
+        <div class="card text-secondary mb-3" style="max-width: 200px;">
+          <div class="card">
+          <div class="card-body" style="background: #EDF2F7;">
+            <h5 class="card-title text-center"><strong>{{totalDeaths}}</strong></h5>
+          </div>
+          </div>
+          <div class="card-footer text-center" style="background: #E2E8F0;"><strong>Deaths</strong></div>
+        </div>
+      </div>
+  
+   </div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+  
